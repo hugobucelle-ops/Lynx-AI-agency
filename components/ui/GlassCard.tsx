@@ -28,6 +28,7 @@ export function GlassCard({
         ...style,
       }}
     >
+      {/* Inner glow */}
       {glow && (
         <div
           style={{
@@ -35,10 +36,27 @@ export function GlassCard({
             inset: 0,
             background:
               accent === 'cyan'
-                ? 'radial-gradient(ellipse at 50% 0%, rgba(0,207,255,0.05) 0%, transparent 60%)'
+                ? 'radial-gradient(ellipse at 50% -10%, rgba(0,207,255,0.08) 0%, transparent 65%)'
                 : accent === 'gold'
-                ? 'radial-gradient(ellipse at 50% 0%, rgba(240,180,41,0.05) 0%, transparent 60%)'
+                ? 'radial-gradient(ellipse at 50% -10%, rgba(240,180,41,0.07) 0%, transparent 65%)'
                 : 'none',
+            pointerEvents: 'none',
+            borderRadius: 'inherit',
+          }}
+        />
+      )}
+      {/* Corner decoration */}
+      {accent !== 'none' && (
+        <div
+          style={{
+            position: 'absolute',
+            top: 12,
+            right: 14,
+            width: 4,
+            height: 4,
+            borderRadius: '50%',
+            background: accent === 'cyan' ? 'rgba(0,207,255,0.4)' : 'rgba(240,180,41,0.4)',
+            boxShadow: accent === 'cyan' ? '0 0 8px rgba(0,207,255,0.5)' : '0 0 8px rgba(240,180,41,0.5)',
             pointerEvents: 'none',
           }}
         />

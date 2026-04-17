@@ -62,10 +62,9 @@ export default async function HomePage() {
         style={{
           position: 'relative',
           height: '100vh',
-          minHeight: 640,
-          maxHeight: 900,
+          minHeight: 700,
           overflow: 'hidden',
-          background: '#09090F',
+          background: '#06060E',
         }}
       >
         {/* 3D terrain background */}
@@ -78,8 +77,8 @@ export default async function HomePage() {
             bottom: 0,
             left: 0,
             right: 0,
-            height: '35%',
-            background: 'linear-gradient(to bottom, transparent, #09090F)',
+            height: '40%',
+            background: 'linear-gradient(to bottom, transparent, #06060E)',
             zIndex: 5,
             pointerEvents: 'none',
           }}
@@ -93,7 +92,7 @@ export default async function HomePage() {
             left: 0,
             right: 0,
             height: '20%',
-            background: 'linear-gradient(to top, transparent, rgba(9,9,15,0.4))',
+            background: 'linear-gradient(to top, transparent, rgba(6,6,14,0.5))',
             zIndex: 5,
             pointerEvents: 'none',
           }}
