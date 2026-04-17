@@ -4,15 +4,18 @@ interface BadgeProps {
   children: React.ReactNode;
   color?: 'cyan' | 'gold';
   size?: 'sm' | 'md';
+  style?: React.CSSProperties;
+  className?: string;
 }
 
-export function Badge({ children, color = 'cyan', size = 'md' }: BadgeProps) {
+export function Badge({ children, color = 'cyan', size = 'md', style, className }: BadgeProps) {
   const isCyan = color === 'cyan';
   const padding = size === 'sm' ? '3px 10px' : '5px 14px';
   const fontSize = size === 'sm' ? 9 : 10;
 
   return (
     <span
+      className={className}
       style={{
         display: 'inline-flex',
         alignItems: 'center',
@@ -27,6 +30,7 @@ export function Badge({ children, color = 'cyan', size = 'md' }: BadgeProps) {
         fontWeight: 700,
         letterSpacing: '0.14em',
         textTransform: 'uppercase' as const,
+        ...style,
       }}
     >
       {children}
