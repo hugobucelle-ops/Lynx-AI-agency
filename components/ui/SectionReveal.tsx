@@ -53,11 +53,13 @@ export function StaggerReveal({
   className = '',
   stagger = 0.08,
   delay = 0,
+  style,
 }: {
   children: React.ReactNode;
   className?: string;
   stagger?: number;
   delay?: number;
+  style?: React.CSSProperties;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-40px 0px' });
@@ -77,6 +79,7 @@ export function StaggerReveal({
         },
       }}
       className={className}
+      style={style}
     >
       {children}
     </motion.div>
