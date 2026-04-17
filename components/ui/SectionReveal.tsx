@@ -9,6 +9,7 @@ interface SectionRevealProps {
   delay?: number;
   direction?: 'up' | 'left' | 'right';
   once?: boolean;
+  style?: React.CSSProperties;
 }
 
 export function SectionReveal({
@@ -17,6 +18,7 @@ export function SectionReveal({
   delay = 0,
   direction = 'up',
   once = true,
+  style,
 }: SectionRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once, margin: '-60px 0px' });
@@ -38,6 +40,7 @@ export function SectionReveal({
         ease: [0.16, 1, 0.3, 1],
       }}
       className={className}
+      style={style}
     >
       {children}
     </motion.div>
