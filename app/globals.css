@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #09090F;
+  --surface: #111120;
+  --border: #1E1E32;
+  --cyan: #00CFFF;
+  --gold: #F0B429;
+  --white: #EEEEF4;
+  --body-text: #8896AA;
+  --muted: #4E5468;
+}
+
+@theme inline {
+  --color-bg: #09090F;
+  --color-surface: #111120;
+  --color-border: #1E1E32;
+  --color-cyan: #00CFFF;
+  --color-gold: #F0B429;
+  --color-white: #EEEEF4;
+  --color-body-text: #8896AA;
+  --color-muted: #4E5468;
+  --font-syne: var(--font-syne);
+  --font-inter: var(--font-inter);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--white);
+  font-family: var(--font-inter), Inter, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* grain overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.022;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* ── Gradient text ── */
+.gradient-text {
+  background: linear-gradient(90deg, #00CFFF, #55E0FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(90deg, #F0B429, #FFD55A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Eyebrow label ── */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 16px;
+}
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--cyan);
+  flex-shrink: 0;
+}
+
+/* ── Card hover ── */
+.card-hover {
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+.card-hover:hover {
+  border-color: rgba(0, 207, 255, 0.3);
+  box-shadow: 0 0 32px rgba(0, 207, 255, 0.07);
+  transform: translateY(-2px);
+}
+
+/* ── Glassmorphism card ── */
+.glass-card {
+  background: rgba(17, 17, 32, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(30, 30, 50, 0.8);
+  border-radius: 16px;
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  background: var(--cyan);
+  color: #09090F;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+.btn-primary:hover {
+  background: #33d8ff;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 207, 255, 0.25);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border: 1px solid var(--border);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+.btn-ghost:hover {
+  border-color: rgba(0, 207, 255, 0.3);
+  background: rgba(0, 207, 255, 0.04);
+  transform: translateY(-1px);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--gold);
+  color: #09090F;
+  font-weight: 700;
+  font-size: 13px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-gold:hover {
+  background: #ffc733;
+  transform: translateY(-1px);
+}
+
+/* ── Accent top bar for cards ── */
+.accent-top-cyan::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cyan) 0%, transparent 80%);
+}
+.accent-top-gold::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold) 0%, transparent 80%);
+}
+
+/* ── List style with accent dash ── */
+.list-accent li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 13px;
+  color: var(--body-text);
+  line-height: 1.65;
+}
+.list-accent li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 1px;
+  background: var(--cyan);
+  display: block;
+}
+
+/* ── Form inputs ── */
+.form-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--white);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+.form-input::placeholder {
+  color: var(--muted);
+}
+.form-input:focus {
+  border-color: rgba(0, 207, 255, 0.4);
+  box-shadow: 0 0 0 3px rgba(0, 207, 255, 0.06);
+}
