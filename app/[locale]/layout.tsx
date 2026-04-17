@@ -4,6 +4,7 @@ import { routing } from '@/i18n/routing';
 import { Nav } from '@/components/nav/Nav';
 import { Footer } from '@/components/footer/Footer';
 import { LenisProvider } from '@/components/ui/LenisProvider';
+import { CursorGlow } from '@/components/ui/CursorGlow';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -59,6 +60,7 @@ export default async function LocaleLayout({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
       <LenisProvider>
+        <CursorGlow />
         <Nav />
         <main style={{ flex: 1 }}>{children}</main>
         <Footer />

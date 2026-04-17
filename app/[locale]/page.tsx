@@ -70,30 +70,41 @@ export default async function HomePage() {
         {/* 3D terrain background */}
         <HeroSceneLoader />
 
-        {/* Dark gradient overlay — bottom fade */}
+        {/* Dark center vignette — makes text readable over 3D */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'radial-gradient(ellipse at 50% 50%, rgba(6,6,14,0.55) 0%, rgba(6,6,14,0.2) 60%, transparent 100%)',
+            zIndex: 3,
+            pointerEvents: 'none',
+          }}
+        />
+
+        {/* Bottom fade */}
         <div
           style={{
             position: 'absolute',
             bottom: 0,
             left: 0,
             right: 0,
-            height: '40%',
+            height: '45%',
             background: 'linear-gradient(to bottom, transparent, #06060E)',
-            zIndex: 5,
+            zIndex: 4,
             pointerEvents: 'none',
           }}
         />
 
-        {/* Top vignette */}
+        {/* Top fade */}
         <div
           style={{
             position: 'absolute',
             top: 0,
             left: 0,
             right: 0,
-            height: '20%',
-            background: 'linear-gradient(to top, transparent, rgba(6,6,14,0.5))',
-            zIndex: 5,
+            height: '25%',
+            background: 'linear-gradient(to bottom, #06060E, transparent)',
+            zIndex: 4,
             pointerEvents: 'none',
           }}
         />
